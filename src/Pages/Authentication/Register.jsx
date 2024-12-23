@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LogIn = () => {
+const Register = () => {
 	return (
 		<div className="min-h-[calc(100vh-264px)] flex items-center justify-center my-16 px-4 lg:px-8">
 			<div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl card-body">
@@ -28,9 +29,33 @@ const LogIn = () => {
 					</span>
 				</div>
 
-				<div className="divider uppercase">or login with email</div>
+				<div className="divider uppercase">Or Register with email</div>
 
 				<form>
+					<div className="form-control">
+						<label className="label">
+							<span className="label-text">Username</span>
+						</label>
+						<input
+							type="text"
+							placeholder="name"
+							name="name"
+							className="input input-bordered"
+							required
+						/>
+					</div>
+					<div className="form-control">
+						<label className="label">
+							<span className="label-text">Photo URL</span>
+						</label>
+						<input
+							type="text"
+							placeholder="photo"
+							name="photo"
+							className="input input-bordered"
+							required
+						/>
+					</div>
 					<div className="form-control">
 						<label className="label">
 							<span className="label-text">Email</span>
@@ -38,6 +63,7 @@ const LogIn = () => {
 						<input
 							type="email"
 							placeholder="email"
+							name="email"
 							className="input input-bordered"
 							required
 						/>
@@ -54,13 +80,13 @@ const LogIn = () => {
 						/>
 					</div>
 					<div className="form-control mt-6">
-						<button className="btn btn-primary">Login</button>
+						<button className="btn btn-primary">Register</button>
 					</div>
 					<label className="label">
 						<span className="label-text-alt link link-hover">
-							New here?{' '}
-							<Link to={'/register'} className="text-primary">
-								Register here
+							Already an user?{' '}
+							<Link to={'/login'} className="text-primary">
+								Log in here
 							</Link>
 						</span>
 					</label>
@@ -70,4 +96,4 @@ const LogIn = () => {
 	);
 };
 
-export default LogIn;
+export default Register;
