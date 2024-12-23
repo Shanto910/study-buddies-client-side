@@ -64,9 +64,11 @@ const Navbar = () => {
 							</li>
 						</ul>
 					</div>
-					<button className="btn btn-ghost">Log Out</button> */}
+					<Link to={'/logout'} className="btn btn-ghost">Log Out</Link> */}
 
-					<button className="btn btn-primary">Log In</button>
+					<Link to={'/login'} className="btn btn-primary">
+						Log In
+					</Link>
 				</div>
 			</div>
 		</div>
