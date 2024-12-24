@@ -3,6 +3,8 @@ import Layout from '../Layout/Layout';
 import PageNotFound from '../Pages/PageNotFound';
 import LogIn from '../Pages/Authentication/LogIn';
 import Register from '../Pages/Authentication/Register';
+import PrivateRoutes from './PrivateRoutes';
+import CreateAssignments from '../Pages/CreateAssignments';
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +22,22 @@ const router = createBrowserRouter([
 			{
 				path: '/register',
 				element: <Register />,
+			},
+			{
+				path: '/pendingAssignments',
+				element: (
+					<PrivateRoutes>
+						<h1>hello</h1>
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: '/createAssignments',
+				element: (
+					<PrivateRoutes>
+						<CreateAssignments />
+					</PrivateRoutes>
+				),
 			},
 		],
 	},
