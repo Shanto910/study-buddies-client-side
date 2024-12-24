@@ -14,8 +14,8 @@ const CreateAssignments = () => {
 	const handleSubmit = async e => {
 		e.preventDefault();
 		const form = e.target;
-		const email = user?.email;
-		const username = user?.displayName;
+		const creator_email = user?.email;
+		const creator_username = user?.displayName;
 		const title = form.title.value;
 		const marks = form.marks.value;
 		const difficulty = form.difficulty.value;
@@ -23,8 +23,10 @@ const CreateAssignments = () => {
 		const description = form.description.value;
 
 		const assignmentData = {
-			email,
-			username,
+			created_By: {
+				creator_email,
+				creator_username,
+			},
 			title,
 			marks,
 			difficulty,
@@ -37,7 +39,7 @@ const CreateAssignments = () => {
 			await axios.post(`${import.meta.env.VITE_API_URL}/create-assignment`, assignmentData);
 			form.reset();
 
-			navigate('/');
+			navigate('/assignments');
 			toast.success('Assignment created successfully!');
 		} catch (err) {
 			toast.error(err?.response?.data);
