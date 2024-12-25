@@ -1,6 +1,6 @@
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdUpdate } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
 import toast from 'react-hot-toast';
@@ -9,6 +9,7 @@ import axios from 'axios';
 const Cards = ({ assign, fetchAllAssignments }) => {
 	const { title, marks, difficulty, photo, created_By, _id } = assign;
 	const { user } = useContext(AuthContext);
+	const navigate = useNavigate();
 
 	const handleDelete = async id => {
 		try {
@@ -45,6 +46,12 @@ const Cards = ({ assign, fetchAllAssignments }) => {
 		));
 	};
 
+	const handleUpdateBTN = () => {
+		if (user?.email !== created_By.creator_email) return toast.error('Action not permitted!');
+
+		return navigate(`/update-assignment/${_id}`);
+	};
+
 	return (
 		<div className="mx-auto w-full rounded-2xl shadow-lg">
 			<section
@@ -62,9 +69,11 @@ const Cards = ({ assign, fetchAllAssignments }) => {
 						{difficulty}
 					</div>
 					<div className="flex gap-3">
-						<div className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">
+						<button
+							onClick={handleUpdateBTN}
+							className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">
 							<MdUpdate />
-						</div>
+						</button>
 						<div
 							onClick={() => modernDelete(_id)}
 							className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">

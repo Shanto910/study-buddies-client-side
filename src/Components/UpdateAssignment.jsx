@@ -1,18 +1,30 @@
-import { useContext, useState } from 'react';
+import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { AuthContext } from '../Providers/AuthProviders';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../Providers/AuthProviders';
 
-const CreateAssignments = () => {
-	const [startDate, setStartDate] = useState(new Date());
-	const { user } = useContext(AuthContext);
+const UpdateAssignment = () => {
 	const navigate = useNavigate();
+	const { user } = useContext(AuthContext);
+	const { id } = useParams();
+	const [startDate, setStartDate] = useState(new Date());
+	const [assignment, setAssignment] = useState({});
+	useEffect(() => {
+		fetchAssignmentData();
+	}, [id]);
+
+	const fetchAssignmentData = async () => {
+		const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/assignment/${id}`);
+		setAssignment(data);
+		setStartDate(new Date(data.deadline));
+	};
 
 	const handleSubmit = async e => {
 		e.preventDefault();
+
 		const form = e.target;
 		const creator_email = user?.email;
 		const creator_username = user?.displayName;
@@ -34,15 +46,16 @@ const CreateAssignments = () => {
 			description,
 			deadline: startDate,
 		};
-
 		try {
-			await axios.post(`${import.meta.env.VITE_API_URL}/create-assignment`, assignmentData);
+			await axios.put(
+				`${import.meta.env.VITE_API_URL}/update-assignment/${id}`,
+				assignmentData
+			);
 			form.reset();
-
 			navigate('/assignments');
-			toast.success('Assignment created successfully!');
+			toast.success('Assignment Updated Successfully!');
 		} catch (err) {
-			toast.error(err?.response?.data);
+			toast.error(err.message);
 		}
 	};
 
@@ -60,6 +73,7 @@ const CreateAssignments = () => {
 								placeholder="title"
 								name="title"
 								className="input input-bordered"
+								defaultValue={assignment.title}
 								required
 							/>
 						</div>
@@ -72,22 +86,28 @@ const CreateAssignments = () => {
 								placeholder="marks"
 								name="marks"
 								className="input input-bordered"
+								defaultValue={assignment.marks}
 								required
 							/>
 						</div>
 					</div>
 
 					<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-						<div className="form-control col-span-4">
-							<label className="label">
-								<span className="label-text">Assignment difficulty level</span>
-							</label>
-							<select name="difficulty" className="select select-bordered">
-								<option value={'easy'}>Easy</option>
-								<option value={'medium'}>Medium</option>
-								<option value={'hard'}>Hard</option>
-							</select>
-						</div>
+						{assignment.difficulty && (
+							<div className="form-control col-span-4">
+								<label className="label">
+									<span className="label-text">Assignment difficulty level</span>
+								</label>
+								<select
+									name="difficulty"
+									className="select select-bordered"
+									defaultValue={assignment.difficulty}>
+									<option value={'easy'}>Easy</option>
+									<option value={'medium'}>Medium</option>
+									<option value={'hard'}>Hard</option>
+								</select>
+							</div>
+						)}
 
 						<div className="form-control col-span-4 md:col-span-2">
 							<label className="label">
@@ -110,6 +130,7 @@ const CreateAssignments = () => {
 							placeholder="thumbnail image URL"
 							name="photo"
 							className="input input-bordered"
+							defaultValue={assignment.photo}
 							required
 						/>
 					</div>
@@ -121,10 +142,11 @@ const CreateAssignments = () => {
 							className="textarea textarea-bordered"
 							placeholder="description"
 							name="description"
+							defaultValue={assignment.description}
 							required></textarea>
 					</div>
 					<div className="form-control mt-6">
-						<button className="btn btn-primary">Submit Assignment</button>
+						<button className="btn btn-primary">Update Assignment</button>
 					</div>
 				</form>
 			</div>
@@ -132,4 +154,4 @@ const CreateAssignments = () => {
 	);
 };
 
-export default CreateAssignments;
+export default UpdateAssignment;
