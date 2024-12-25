@@ -58,12 +58,14 @@ const Navbar = () => {
 
 					{user?.email ? (
 						<>
-							<div className="dropdown dropdown-end">
+							<div
+								className="dropdown dropdown-end tooltip tooltip-accent tooltip-bottom"
+								data-tip={user?.displayName}>
 								<div
 									tabIndex={0}
 									role="button"
 									className="btn btn-ghost btn-circle avatar">
-									<div className="w-10 rounded-full">
+									<div className="w-10 rounded-full ">
 										<img referrerPolicy="no-referrer" src={user.photoURL} />
 									</div>
 								</div>

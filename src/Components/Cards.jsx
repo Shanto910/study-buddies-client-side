@@ -1,9 +1,50 @@
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { MdUpdate } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProviders';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
-const Cards = ({ assign }) => {
-	const { title, marks, difficulty, photo, description } = assign;
+const Cards = ({ assign, fetchAllAssignments }) => {
+	const { title, marks, difficulty, photo, created_By, _id } = assign;
+	const { user } = useContext(AuthContext);
+
+	const handleDelete = async id => {
+		try {
+			await axios.delete(`${import.meta.env.VITE_API_URL}/assignments/${id}`);
+			toast.success('Assignment Deleted Successfully!');
+			fetchAllAssignments();
+		} catch (err) {
+			toast.error(err.message);
+		}
+	};
+
+	const modernDelete = id => {
+		if (user?.email !== created_By.creator_email) return toast.error('Action not permitted!');
+
+		toast(t => (
+			<div className="flex gap-3 flex-col">
+				<div>
+					<p>Are you sure? This action is irreversible</p>
+				</div>
+				<div className="gap-2 flex">
+					<button
+						className="btn btn-sm btn-error"
+						onClick={() => {
+							toast.dismiss(t.id);
+							handleDelete(id);
+						}}>
+						Yes
+					</button>
+					<button className="btn btn-sm" onClick={() => toast.dismiss(t.id)}>
+						No
+					</button>
+				</div>
+			</div>
+		));
+	};
+
 	return (
 		<div className="mx-auto w-full rounded-2xl shadow-lg">
 			<section
@@ -24,7 +65,9 @@ const Cards = ({ assign }) => {
 						<div className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">
 							<MdUpdate />
 						</div>
-						<div className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">
+						<div
+							onClick={() => modernDelete(_id)}
+							className="p-3 bg-base-100 rounded-full text-lg cursor-pointer">
 							<RiDeleteBin6Line />
 						</div>
 					</div>

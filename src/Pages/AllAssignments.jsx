@@ -6,12 +6,13 @@ const AllAssignments = () => {
 	const [assignments, setAssignments] = useState([]);
 
 	useEffect(() => {
-		const fetchAllAssignments = async () => {
-			const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/assignments`);
-			setAssignments(data);
-		};
 		fetchAllAssignments();
 	}, []);
+
+	const fetchAllAssignments = async () => {
+		const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/assignments`);
+		setAssignments(data);
+	};
 
 	return (
 		<div className="py-20 px-4 lg:px-8">
@@ -28,7 +29,11 @@ const AllAssignments = () => {
 				<div>
 					<div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
 						{assignments.map(assign => (
-							<Cards key={assign._id} assign={assign} />
+							<Cards
+								key={assign._id}
+								assign={assign}
+								fetchAllAssignments={fetchAllAssignments}
+							/>
 						))}
 					</div>
 				</div>
