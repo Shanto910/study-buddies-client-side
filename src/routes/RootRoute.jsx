@@ -8,6 +8,8 @@ import CreateAssignments from '../Pages/CreateAssignments';
 import AllAssignments from '../Pages/AllAssignments';
 import UpdateAssignment from '../Pages/UpdateAssignment';
 import AssignmentDetails from '../Pages/AssignmentDetails';
+import MyAttemptedAssignments from '../Pages/MyAttemptedAssignments';
+import PendingAssignments from '../Pages/PendingAssignments';
 
 const router = createBrowserRouter([
 	{
@@ -31,10 +33,10 @@ const router = createBrowserRouter([
 				element: <AllAssignments />,
 			},
 			{
-				path: '/pendingAssignments',
+				path: '/pending-assignments',
 				element: (
 					<PrivateRoutes>
-						<h1>hello</h1>
+						<PendingAssignments />
 					</PrivateRoutes>
 				),
 			},
@@ -59,6 +61,14 @@ const router = createBrowserRouter([
 				element: (
 					<PrivateRoutes>
 						<AssignmentDetails />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: '/my-attempted-assignments/:email',
+				element: (
+					<PrivateRoutes>
+						<MyAttemptedAssignments />
 					</PrivateRoutes>
 				),
 			},

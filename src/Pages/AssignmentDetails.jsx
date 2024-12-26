@@ -37,6 +37,8 @@ const AssignmentDetails = () => {
 			marks,
 			submitted_by: user?.email,
 			status: 'Pending',
+			feedback: '',
+			obtained_marks: 0,
 		};
 
 		try {

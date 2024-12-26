@@ -50,7 +50,9 @@ const Navbar = () => {
 							Assignments
 						</NavLink>
 						{user?.email && (
-							<NavLink to={'/pendingAssignments'} className="btn btn-ghost text-base">
+							<NavLink
+								to={'/pending-assignments'}
+								className="btn btn-ghost text-base">
 								Pending Assignments
 							</NavLink>
 						)}
@@ -58,14 +60,13 @@ const Navbar = () => {
 
 					{user?.email ? (
 						<>
-							<div
-								className="dropdown dropdown-end tooltip tooltip-accent tooltip-bottom"
-								data-tip={user?.displayName}>
+							<div className="dropdown dropdown-end">
 								<div
 									tabIndex={0}
 									role="button"
-									className="btn btn-ghost btn-circle avatar">
-									<div className="w-10 rounded-full ">
+									className="btn btn-ghost btn-circle avatar tooltip tooltip-accent tooltip-bottom"
+									data-tip={user?.displayName}>
+									<div className="rounded-full ">
 										<img referrerPolicy="no-referrer" src={user.photoURL} />
 									</div>
 								</div>
@@ -78,7 +79,7 @@ const Navbar = () => {
 										</NavLink>
 									</li>
 									<li>
-										<NavLink to={'/myAttemptedAssignments'}>
+										<NavLink to={`/my-attempted-assignments/${user?.email}`}>
 											My Attempted Assignments
 										</NavLink>
 									</li>

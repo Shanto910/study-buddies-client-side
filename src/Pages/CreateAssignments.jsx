@@ -17,7 +17,7 @@ const CreateAssignments = () => {
 		const creator_email = user?.email;
 		const creator_username = user?.displayName;
 		const title = form.title.value;
-		const marks = form.marks.value;
+		const marks = parseFloat(form.marks.value);
 		const difficulty = form.difficulty.value;
 		const photo = form.photo.value;
 		const description = form.description.value;
