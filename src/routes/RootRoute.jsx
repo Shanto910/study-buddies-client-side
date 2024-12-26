@@ -6,7 +6,8 @@ import Register from '../Pages/Authentication/Register';
 import PrivateRoutes from './PrivateRoutes';
 import CreateAssignments from '../Pages/CreateAssignments';
 import AllAssignments from '../Pages/AllAssignments';
-import UpdateAssignment from '../Components/UpdateAssignment';
+import UpdateAssignment from '../Pages/UpdateAssignment';
+import AssignmentDetails from '../Pages/AssignmentDetails';
 
 const router = createBrowserRouter([
 	{
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
 				element: (
 					<PrivateRoutes>
 						<UpdateAssignment />
+					</PrivateRoutes>
+				),
+			},
+			{
+				path: '/assignment-details/:id',
+				element: (
+					<PrivateRoutes>
+						<AssignmentDetails />
 					</PrivateRoutes>
 				),
 			},

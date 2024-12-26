@@ -94,7 +94,7 @@ const Cards = ({ assign, fetchAllAssignments }) => {
 				</div>
 
 				<Link
-					to={'/assignment-details'}
+					to={`/assignment-details/${_id}`}
 					className="cursor-pointer py-2 px-5 rounded-full bg-accent text-white font-semibold">
 					View assignment
 				</Link>
