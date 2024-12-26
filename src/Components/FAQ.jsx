@@ -18,7 +18,7 @@ const FAQ = () => {
 					<div className="flex justify-between items-center py-4">
 						<h3 className="text-xl font-semibold">How do I create an assignment?</h3>
 						<button
-							className="text-[#9538E2] focus:outline-none"
+							className="text-primary focus:outline-none"
 							onClick={() => toggleOpen(0)}>
 							<FaAngleDown
 								className={`w-6 h-6 transform transition-all ${
@@ -39,7 +39,7 @@ const FAQ = () => {
 					<div className="flex justify-between items-center py-4">
 						<h3 className="text-xl font-semibold">Can I grade my own assignments?</h3>
 						<button
-							className="text-[#9538E2] focus:outline-none"
+							className="text-primary focus:outline-none"
 							onClick={() => toggleOpen(1)}>
 							<FaAngleDown
 								className={`w-6 h-6 transform transition-all ${
@@ -60,7 +60,7 @@ const FAQ = () => {
 					<div className="flex justify-between items-center py-4">
 						<h3 className="text-xl font-semibold">How do I submit my assignment?</h3>
 						<button
-							className="text-[#9538E2] focus:outline-none"
+							className="text-primary focus:outline-none"
 							onClick={() => toggleOpen(2)}>
 							<FaAngleDown
 								className={`w-6 h-6 transform transition-all ${
@@ -84,7 +84,7 @@ const FAQ = () => {
 							Is my data secure on this platform?
 						</h3>
 						<button
-							className="text-[#9538E2] focus:outline-none"
+							className="text-primary focus:outline-none"
 							onClick={() => toggleOpen(3)}>
 							<FaAngleDown
 								className={`w-6 h-6 transform transition-all ${
