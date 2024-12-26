@@ -11,7 +11,7 @@ const PendingAssignments = () => {
 
 	const fetchAllPending = async () => {
 		const { data } = await axios.get(
-			`${import.meta.env.VITE_API_URL}/submissions?status=Pending`
+			`${import.meta.env.VITE_API_URL}/all-submissions?status=Pending`
 		);
 		setSubmissions(data);
 	};
