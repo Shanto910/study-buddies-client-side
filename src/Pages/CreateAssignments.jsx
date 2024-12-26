@@ -47,8 +47,11 @@ const CreateAssignments = () => {
 	};
 
 	return (
-		<div className="min-h-[calc(100vh-264px)] flex items-center justify-center my-16 px-4 lg:px-8">
-			<div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl card-body">
+		<div className="min-h-[calc(100vh-264px)] my-16 px-4 lg:px-8">
+			<div className="flex flex-col justify-center items-center text-center mb-12">
+				<h2 className="md:text-4xl text-4xl font-bold text-accent">Create Assignments</h2>
+			</div>
+			<div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl card-body">
 				<form onSubmit={handleSubmit}>
 					<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
 						<div className="form-control col-span-4">

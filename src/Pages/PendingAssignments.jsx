@@ -17,9 +17,11 @@ const PendingAssignments = () => {
 	};
 
 	return (
-		<div className="py-24 bg-gray-100 px-8">
+		<div className="py-24 px-8">
 			<div className="flex flex-col justify-center items-center text-center">
-				<h2 className="md:text-4xl text-4xl font-bold mb-4">My Attempted Assignments</h2>
+				<h2 className="md:text-4xl text-4xl font-bold mb-4 text-accent">
+					Pending Assignments
+				</h2>
 			</div>
 			<div className="relative overflow-x-auto shadow-md sm:rounded-lg max-w-5xl mx-auto mt-12">
 				<table className="w-full text-sm text-gray-500">
