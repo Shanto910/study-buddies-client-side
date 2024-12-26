@@ -11,6 +11,7 @@ import AssignmentDetails from '../Pages/AssignmentDetails';
 import MyAttemptedAssignments from '../Pages/MyAttemptedAssignments';
 import PendingAssignments from '../Pages/PendingAssignments';
 import SubmissionDetails from '../Pages/SubmissionDetails';
+import HomePage from '../Pages/HomePage';
 
 const router = createBrowserRouter([
 	{
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <h1>home</h1>,
+				element: <HomePage />,
 			},
 			{
 				path: '/login',
