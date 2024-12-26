@@ -35,7 +35,8 @@ const AssignmentDetails = () => {
 			assignmentId,
 			title,
 			marks,
-			submitted_by: user?.email,
+			submitted_by_email: user?.email,
+			submitted_by_name: user?.displayName,
 			status: 'Pending',
 			feedback: '',
 			obtained_marks: 0,
@@ -46,7 +47,6 @@ const AssignmentDetails = () => {
 			form.reset();
 			navigate('/');
 			toast.success('Assignment Submitted Successfully!');
-			console.log(submissionData);
 		} catch (err) {
 			toast.error(err?.response?.data);
 		}

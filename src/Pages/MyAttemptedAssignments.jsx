@@ -20,7 +20,7 @@ const MyAttemptedAssignments = () => {
 			<div className="flex flex-col justify-center items-center text-center">
 				<h2 className="md:text-4xl text-4xl font-bold mb-4">My Attempted Assignments</h2>
 			</div>
-			<div className="relative overflow-x-auto shadow-md sm:rounded-lg max-w-7xl mx-auto mt-12">
+			<div className="relative overflow-x-auto shadow-md sm:rounded-lg max-w-6xl mx-auto mt-12">
 				<table className="w-full text-sm text-gray-500">
 					<thead className="text-xs text-gray-700 uppercase bg-gray-200 tracking-wider columns-12">
 						<tr>
