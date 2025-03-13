@@ -17,26 +17,26 @@ const PendingAssignments = () => {
 	};
 
 	return (
-		<div className="py-24 px-8">
-			<div className="flex flex-col justify-center items-center text-center">
-				<h2 className="md:text-4xl text-4xl font-bold mb-4 text-accent">
+		<div className="px-8 py-24">
+			<div className="flex flex-col items-center justify-center text-center">
+				<h2 className="mb-4 text-4xl font-bold md:text-4xl text-accent">
 					Pending Assignments
 				</h2>
 			</div>
-			<div className="relative overflow-x-auto shadow-md sm:rounded-lg max-w-5xl mx-auto mt-12">
+			<div className="relative max-w-5xl mx-auto mt-12 overflow-x-auto shadow-md sm:rounded-lg">
 				<table className="w-full text-sm text-gray-500">
-					<thead className="text-xs text-gray-700 uppercase bg-gray-200 tracking-wider">
+					<thead className="text-xs tracking-wider text-gray-700 uppercase bg-gray-200">
 						<tr>
-							<th scope="col" className="py-3 px-6 text-left columns-2">
+							<th scope="col" className="px-6 py-3 text-left columns-2">
 								Title
 							</th>
-							<th scope="col" className="py-3 px-6 text-right columns-1">
+							<th scope="col" className="px-6 py-3 text-right columns-1">
 								Assignment Marks
 							</th>
-							<th scope="col" className="py-3 px-6 text-center columns-1">
+							<th scope="col" className="px-6 py-3 text-center columns-1">
 								Examinee Name
 							</th>
-							<th scope="col" className="py-3 px-6 text-center columns-1">
+							<th scope="col" className="px-6 py-3 text-center columns-1">
 								Action
 							</th>
 						</tr>
@@ -44,17 +44,17 @@ const PendingAssignments = () => {
 					<tbody>
 						{submissions.map(submission => (
 							<tr key={submission._id} className="bg-white border-b hover:bg-gray-50">
-								<td className="px-6 py-4 font-semibold text-gray-900 text-left">
+								<td className="px-6 py-4 font-semibold text-left text-gray-900">
 									{submission.title}
 								</td>
 
-								<td className="px-6 py-4 font-semibold text-gray-900 text-right">
+								<td className="px-6 py-4 font-semibold text-right text-gray-900">
 									{submission.marks}
 								</td>
-								<td className="px-6 py-4 font-semibold text-gray-900 text-center">
+								<td className="px-6 py-4 font-semibold text-center text-gray-900">
 									{submission.submitted_by_name}
 								</td>
-								<td className="px-6 py-4 flex justify-center">
+								<td className="flex justify-center px-6 py-4">
 									<Link
 										to={`/submission-details/${submission._id}`}
 										className="btn btn-accent">
