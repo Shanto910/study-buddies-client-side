@@ -60,7 +60,13 @@ const UpdateAssignment = () => {
 	};
 
 	return (
-		<div className="min-h-[calc(100vh-264px)] flex items-center justify-center my-16 px-4 lg:px-8">
+		<div className="min-h-[calc(100vh-264px)] flex flex-col items-center justify-center my-16 px-4 lg:px-8">
+			<div className="mb-12 text-center">
+				<h2 className="mb-4 text-2xl font-bold md:text-4xl text-accent">
+					Update Assignment
+				</h2>
+				<p className="text-xl max-w-[62ch] mx-auto">Update your assignment here</p>
+			</div>
 			<div className="w-full max-w-2xl shadow-2xl card bg-base-100 shrink-0 card-body">
 				<form onSubmit={handleSubmit}>
 					<div className="grid grid-cols-1 gap-4 md:grid-cols-6">
@@ -146,7 +152,7 @@ const UpdateAssignment = () => {
 							required></textarea>
 					</div>
 					<div className="mt-6 form-control">
-						<button className="btn btn-primary">Update Assignment</button>
+						<button className="btn btn-accent">Update Assignment</button>
 					</div>
 				</form>
 			</div>

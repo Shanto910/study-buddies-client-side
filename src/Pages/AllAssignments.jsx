@@ -24,10 +24,10 @@ const AllAssignments = () => {
 	};
 
 	return (
-		<div className="py-20 px-4 lg:px-8">
+		<div className="px-4 py-20 lg:px-8">
 			<div className="mx-auto max-w-7xl">
-				<div className="text-center mb-12">
-					<h2 className="md:text-4xl text-2xl font-bold mb-4 text-accent">
+				<div className="mb-12 text-center">
+					<h2 className="mb-4 text-2xl font-bold md:text-4xl text-accent">
 						Assignments Overview
 					</h2>
 					<p className="text-xl max-w-[62ch] mx-auto">
@@ -36,7 +36,7 @@ const AllAssignments = () => {
 					</p>
 				</div>
 				<div>
-					<div className="flex justify-center items-center gap-6 mb-8">
+					<div className="flex items-center justify-center gap-6 mb-8">
 						<div className="join">
 							<div>
 								<div>
@@ -58,14 +58,14 @@ const AllAssignments = () => {
 								<option value="hard">Hard</option>
 							</select>
 							<div className="indicator">
-								<button onClick={handleReset} className="btn btn-neutral join-item">
+								<button onClick={handleReset} className="btn btn-accent join-item">
 									Reset
 								</button>
 							</div>
 						</div>
 					</div>
 
-					<div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
 						{assignments.map(assign => (
 							<Cards
 								key={assign._id}

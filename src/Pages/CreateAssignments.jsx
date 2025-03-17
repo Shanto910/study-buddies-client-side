@@ -48,13 +48,13 @@ const CreateAssignments = () => {
 
 	return (
 		<div className="min-h-[calc(100vh-264px)] my-16 px-4 lg:px-8">
-			<div className="flex flex-col justify-center items-center text-center mb-12">
-				<h2 className="md:text-4xl text-4xl font-bold text-accent">Create Assignments</h2>
+			<div className="flex flex-col items-center justify-center mb-12 text-center">
+				<h2 className="text-4xl font-bold md:text-4xl text-accent">Create Assignments</h2>
 			</div>
-			<div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl card-body">
+			<div className="w-full max-w-2xl mx-auto shadow-2xl card bg-base-100 shrink-0 card-body">
 				<form onSubmit={handleSubmit}>
-					<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-						<div className="form-control col-span-4">
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-6">
+						<div className="col-span-4 form-control">
 							<label className="label">
 								<span className="label-text">Title</span>
 							</label>
@@ -66,7 +66,7 @@ const CreateAssignments = () => {
 								required
 							/>
 						</div>
-						<div className="form-control col-span-4 md:col-span-2">
+						<div className="col-span-4 form-control md:col-span-2">
 							<label className="label">
 								<span className="label-text">Marks</span>
 							</label>
@@ -80,8 +80,8 @@ const CreateAssignments = () => {
 						</div>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-						<div className="form-control col-span-4">
+					<div className="grid grid-cols-1 gap-4 md:grid-cols-6">
+						<div className="col-span-4 form-control">
 							<label className="label">
 								<span className="label-text">Assignment difficulty level</span>
 							</label>
@@ -92,12 +92,12 @@ const CreateAssignments = () => {
 							</select>
 						</div>
 
-						<div className="form-control col-span-4 md:col-span-2">
+						<div className="col-span-4 form-control md:col-span-2">
 							<label className="label">
 								<span className="label-text">Due Date</span>
 							</label>
 							<DatePicker
-								className="input input-bordered w-full"
+								className="w-full input input-bordered"
 								selected={startDate}
 								onChange={date => setStartDate(date)}
 							/>
@@ -126,8 +126,8 @@ const CreateAssignments = () => {
 							name="description"
 							required></textarea>
 					</div>
-					<div className="form-control mt-6">
-						<button className="btn btn-primary">Submit Assignment</button>
+					<div className="mt-6 form-control">
+						<button className="btn btn-accent">Submit Assignment</button>
 					</div>
 				</form>
 			</div>

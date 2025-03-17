@@ -23,7 +23,7 @@ const testimonials = [
 
 const Testimonial = () => {
 	return (
-		<section className="px-4 py-12 bg-base-200">
+		<section className="px-4 py-12">
 			<div className="max-w-5xl mx-auto text-center">
 				<h2 className="text-3xl font-bold text-gray-800">What Our Students Say</h2>
 				<p className="mt-2 text-gray-600">
